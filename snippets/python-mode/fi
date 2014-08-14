@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import FP related functions
+# key: fi
+# --
+from functools import partial, reduce
+from itertools import count, cycle, repeat, chain, starmap, tee, takewhile, dropwhile
