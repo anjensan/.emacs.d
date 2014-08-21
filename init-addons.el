@@ -80,6 +80,23 @@
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
+;; erlang
+(add-to-list 'load-path "~/.emacs.d/distel/elisp")
+(require 'distel)
+(distel-setup)
+
+(flycheck-define-checker erlang
+  "An Erlang hacked syntax checker"
+  :command ("erlc" "-o" temporary-directory
+	    "-I" "../../../include"
+	    "-I" "../../include"
+	    "-I" "../include"
+	    "-Wall" source)
+  :error-patterns
+  ((warning line-start (file-name) ":" line ": Warning:" (message) line-end)
+   (error line-start (file-name) ":" line ": " (message) line-end))
+  :modes erlang-mode)
+
 ;; dired
 (require 'dired)
 (require 'dired-x)
