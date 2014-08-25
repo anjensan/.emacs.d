@@ -1,3 +1,6 @@
 [submodule "distel"]
 	path = distel
 	url = https://github.com/massemanet/distel
+[submodule "company-distel"]
+	path = company-distel
+	url = https://github.com/sebastiw/company-distel
