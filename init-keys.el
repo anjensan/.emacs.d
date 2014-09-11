@@ -87,6 +87,8 @@
   (global-set-key (kbd "C-r") '("C-x r" nil))  ; region & bookmarks
 
   (global-set-key (kbd "M-'") 'comment-DWIM)
+
+  (define-key company-mode-map (kbd "C-.") 'company-abort)
   )
 
 
@@ -169,15 +171,15 @@
   (global-set-key (kbd "M-i") (mk-push-command-event up))
   (global-set-key (kbd "M-k") (mk-push-command-event down))
 
-  (global-set-key (kbd "M-C-j") (mk-push-command-event C-left))
-  (global-set-key (kbd "M-C-l") (mk-push-command-event C-right))
-  (global-set-key (kbd "M-C-i") (mk-push-command-event C-up))
-  (global-set-key (kbd "M-C-k") (mk-push-command-event C-down))
+  (global-set-key (kbd "M-C-J") (mk-push-command-event C-left))
+  (global-set-key (kbd "M-C-L") (mk-push-command-event C-right))
+  (global-set-key (kbd "M-C-I") (mk-push-command-event C-up))
+  (global-set-key (kbd "M-C-K") (mk-push-command-event C-down))
 
-  (global-set-key (kbd "M-C-J") (mk-push-command-event M-left))
-  (global-set-key (kbd "M-C-L") (mk-push-command-event M-right))
-  (global-set-key (kbd "M-C-I") (mk-push-command-event M-up))
-  (global-set-key (kbd "M-C-K") (mk-push-command-event M-down))
+  (global-set-key (kbd "M-C-S-J") (mk-push-command-event M-left))
+  (global-set-key (kbd "M-C-S-L") (mk-push-command-event M-right))
+  (global-set-key (kbd "M-C-S-I") (mk-push-command-event M-up))
+  (global-set-key (kbd "M-C-S-K") (mk-push-command-event M-down))
 
   (global-set-key (kbd "M-C-u") 'highlight-symbol-prev)
   (global-set-key (kbd "M-C-o") 'highlight-symbol-next)
@@ -213,10 +215,6 @@
 
   (define-key browse-kill-ring-mode-map (kbd "M-;") 'browse-kill-ring-search-forward)
   (define-key browse-kill-ring-mode-map (kbd "M-:") 'browse-kill-ring-search-backward)
-
-  (when company-completion-started-hook
-    :modify-map t
-    (define-key company-active-map (kbd "M-;") 'company-search-candidates))
 
   )
 
