@@ -1,4 +1,4 @@
-(defvar default-font "DeJavu Sans Mono 11" "Default font")
+(defvar default-font "Source Code Pro 11")
 (defvar default-frame-height 40 "Default frame height")
 (defvar default-frame-width 132 "Default frame width")
 
