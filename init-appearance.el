@@ -1,5 +1,5 @@
 (set-default-font "Source Code Pro 11") 
-(set-fontset-font "fontset-default" '(#x0400 . #x04ff) "Dejavu Sans Mono-11") 
+(set-fontset-font "fontset-default" '(#x0400 . #x04ff) "Dejavu Sans Mono-11")
 
 (defvar default-frame-height 40 "Default frame height")
 (defvar default-frame-width 132 "Default frame width")
