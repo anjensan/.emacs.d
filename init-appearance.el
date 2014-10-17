@@ -1,4 +1,5 @@
-(set-default-font "Source Code Pro 11") 
+
+(set-face-attribute 'default nil :font "Source Code Pro 11")
 (set-fontset-font "fontset-default" '(#x0400 . #x04ff) "Dejavu Sans Mono-11")
 
 (defvar default-frame-height 40 "Default frame height")
