@@ -1,9 +1,18 @@
+;;; init-keys.el -- part anjensan's of .emacs.d
+;;; Commentary:
+;;; Code:
+
 (require 'ergoemacs-mode)
 
-; ergoemacs bind RET incorrectly (broke smex)
+
+;; ergoemacs bind RET incorrectly (broke smex)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-RET") 'newline)
 
+
+;; restore, sometimes WM already use M-SPC 
+(global-set-key (kbd "C-SPC") 'set-mark-command)
+ 
 
 ;; ---
 
@@ -286,8 +295,6 @@
  
     )
 
-  ; restore, sometimes WM already use M-SPC 
-  (global-set-key (kbd "C-SPC") 'set-mark-command)
   (global-set-key (kbd "<C-return>") 'company-complete)
 
   )
