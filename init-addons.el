@@ -81,17 +81,6 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
 ;; erlang
-(add-to-list 'load-path "~/.emacs.d/distel/elisp")
-(add-to-list 'load-path "~/.emacs.d/company-distel")
-(require 'distel)
-(distel-setup)
-(require 'company-distel)(add-to-list 'company-backends 'company-distel)
-
-(add-hook
- 'erlang-mode-hook
- (lambda ()
-   (set (make-local-variable 'company-backends) '(company-distel company-dabbrev))
-   ))
 
 (flycheck-define-checker erlang
   "An Erlang hacked syntax checker"
