@@ -1,7 +1,7 @@
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
-(add-to-list 'load-path "~/.emacs.d")
 
 (load-library "init-appearance")
 (setq custom-file "~/.emacs.d/custom.el")
