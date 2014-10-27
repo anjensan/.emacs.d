@@ -2,23 +2,23 @@
 
 
 (defun goto-match-paren (arg)
-     "Go to the matching parenthesis if on parenthesis. Else go to the
+  "Go to the matching parenthesis if on parenthesis. Else go to the
    opening parenthesis one level up."
-     (interactive "p")
-     (cond ((looking-at "\\s\(") (forward-list 1))
-           (t
-            (backward-char 1)
-            (cond ((looking-at "\\s\)")
-                   (forward-char 1) (backward-list 1))
-                  (t
-                   (while (not (looking-at "\\s("))
-                     (backward-char 1)
-                     (cond ((looking-at "\\s\)")
-                            (message "->> )")
-                            (forward-char 1)
-                            (backward-list 1)
-                            (backward-char 1)))
-                     ))))))
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1))
+	(t
+	 (backward-char 1)
+	 (cond ((looking-at "\\s\)")
+		(forward-char 1) (backward-list 1))
+	       (t
+		(while (not (looking-at "\\s("))
+		  (backward-char 1)
+		  (cond ((looking-at "\\s\)")
+			 (message "->> )")
+			 (forward-char 1)
+			 (backward-list 1)
+			 (backward-char 1)))
+		  ))))))
 
 
 (defun shift-text (distance)
@@ -43,15 +43,6 @@
 (defun shift-left (count)
   (interactive "*p")
   (shift-text (- count)))
-
-(defun nrepl-kill-popup-buffers ()
-  "Kill all buffers with 'nrepl-popup-buffer-mode'."
-  (interactive)
-  (save-excursion
-    (dolist (buffer (buffer-list))
-      (with-current-buffer buffer
-	(when nrepl-popup-buffer-mode
-	  (kill-buffer buffer))))))
 
 (defvar goto-last-change-undo-tree-node nil)
 (make-variable-buffer-local 'goto-last-change-undo-tree-node)
@@ -120,24 +111,24 @@
    Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d."
   (interactive)
   (insert
-   (format "%04x%04x-%04x-%04x-%04x-%06x%06x"
+   (format "%04x%04x-%04x-4%03x-%04x-%06x%06x"
            (random (expt 16 4))
            (random (expt 16 4))
            (random (expt 16 4))
-           (random (expt 16 4))
+           (random (expt 16 3))
            (random (expt 16 4))
            (random (expt 16 6))
            (random (expt 16 6)))))
 
 
- (defun transpose-windows (arg)
-   "Transpose the buffers shown in two windows."
-   (interactive "p")
-   (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
-     (while (/= arg 0)
-       (let ((this-win (window-buffer))
-             (next-win (window-buffer (funcall selector))))
-         (set-window-buffer (selected-window) next-win)
-         (set-window-buffer (funcall selector) this-win)
-         (select-window (funcall selector)))
-       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+(defun transpose-windows (arg)
+  "Transpose the buffers shown in two windows."
+  (interactive "p")
+  (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
+    (while (/= arg 0)
+      (let ((this-win (window-buffer))
+	    (next-win (window-buffer (funcall selector))))
+	(set-window-buffer (selected-window) next-win)
+	(set-window-buffer (funcall selector) this-win)
+	(select-window (funcall selector)))
+      (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
