@@ -83,7 +83,7 @@
   (global-set-key (kbd "C-'") 'dired-jump)
   (global-set-key (kbd "C-Z") 'undo-tree-visualize)
   (global-set-key (kbd "C-y") 'reposition-window)
-  (global-set-key (kbd "C-v") 'flycheck-list-errors)
+  (global-set-key (kbd "C-v") 'neotree-project-dir)
   (global-set-key (kbd "C-b") 'bs-show)
 
   (global-set-key (kbd "C-,") 'undo-tree-goto-last-change)

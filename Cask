@@ -35,6 +35,7 @@
 (depends-on "markdown-mode")
 (depends-on "mmm-mode")
 (depends-on "muse")
+(depends-on "neotree")
 (depends-on "org-cua-dwim")
 (depends-on "package-build")
 (depends-on "pallet")

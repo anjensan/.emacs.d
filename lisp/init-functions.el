@@ -132,3 +132,15 @@
 	(set-window-buffer (funcall selector) this-win)
 	(select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+
+
+(defun neotree-project-dir ()
+  "Open NeoTree using the git root."
+  (interactive)
+  (let ((project-dir (ffip-project-root))
+	(file-name (buffer-file-name)))
+    (if project-dir
+	(progn
+	  (neotree-dir project-dir)
+	  (neotree-find file-name))
+      (message "Could not find git project root."))))
