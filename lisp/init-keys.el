@@ -154,6 +154,7 @@
   (global-set-key (kbd "M-b") 'ido-switch-buffer)
   (global-set-key (kbd "M-B") 'ibuffer)
   (global-set-key (kbd "M-n") 'idomenu)
+  (global-set-key (kbd "M-N") 'imenu-anywhere)
 
   (global-set-key (kbd "M-m") 'flycheck-next-error)
   (global-set-key (kbd "M-M") 'flycheck-previous-error)

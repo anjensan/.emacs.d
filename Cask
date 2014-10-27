@@ -28,6 +28,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "idomenu")
 (depends-on "iedit")
+(depends-on "imenu-anywhere")
 (depends-on "jinja2-mode")
 (depends-on "lua-mode")
 (depends-on "magit")
