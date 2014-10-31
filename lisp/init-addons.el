@@ -113,3 +113,16 @@
 (remove-hook 'yas-global-mode-hook 'yas--global-mode-reload-with-jit-maybe)
 (yas-global-mode 1)
 (add-hook 'yas-global-mode-hook 'yas--global-mode-reload-with-jit-maybe)
+
+;; neotree
+(require 'neotree)
+
+;; completely disable banner
+(setq neo-banner-message nil)
+(defun neo-buffer--insert-banner ())
+
+;; don't create empty lines at the top of neotree buffer
+(defun neo-buffer--newline-and-begin ()
+  (unless (= (point) (point-min))
+    (newline)
+    (beginning-of-line)))

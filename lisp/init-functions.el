@@ -143,4 +143,6 @@
 	(progn
 	  (neotree-dir project-dir)
 	  (neotree-find file-name))
-      (message "Could not find git project root."))))
+      (progn
+	(message "Could not find git project root.")
+	(neotree-show)))))
