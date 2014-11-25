@@ -5,9 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes (quote ("3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" default)))
  '(delete-selection-mode t)
- '(initial-scratch-message ";; This buffer is for notes you don't want to save, and for Lisp evaluation.
-;; If you want to create a file, visit that file with 【Ctrl+O】,
-;; then enter the text in that file's own buffer.")
+ '(initial-scratch-message "")
  '(org-CUA-compatible t)
  '(org-special-ctrl-a/e t)
  '(org-support-shift-select t)

@@ -8,30 +8,21 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
-(defvar required-packages)
+(defvar my-packages)
 
-; method to check if all packages are installed
-(defun packages-installed-p ()
-  (loop for p in required-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
-
-(defun install-all-required-packages ()
-  ; check for new packages (package versions)
+(defun install-my-packages ()
   (message "%s" "Emacs is now refreshing its package database...")
   (package-refresh-contents)
   (message "%s" " done.")
-  ; install the missing packages
-  (dolist (p required-packages)
+  (dolist (p my-packages)
     (when (not (package-installed-p p))
       (package-install p))))
 
-
-(setq package-pinned-archives
+(setq package-pinned-packages
       '((clojure-mode . "melpa-stable")
 	(cider . "melpa-stable")))
 
-(setq required-packages
+(setq my-packages
       '(
 	ace-jump-mode
 	base16-theme
@@ -74,7 +65,7 @@
 	yafolding
 	yaml-mode
 	yasnippet
-    ))
+	))
 
-(unless (packages-installed-p)
-  (install-all-required-packages))
+(unless (cl-every 'package-installed-p my-packages)
+  (install-my-packages))
