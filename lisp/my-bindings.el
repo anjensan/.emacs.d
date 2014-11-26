@@ -5,6 +5,7 @@
 (require 'ergoemacs-mode)
 (require 'quail)
 
+(defun ergoemacs-shell-here-directory-change-hook ())
 
 (ergoemacs-theme-component aj-fn-keys ()
   "My Fn keys"
