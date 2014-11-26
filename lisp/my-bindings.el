@@ -3,18 +3,8 @@
 ;;; Code:
 
 (require 'ergoemacs-mode)
+(require 'quail)
 
-
-;; ergoemacs bind RET incorrectly (broke smex)
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "M-RET") 'newline)
-
-
-;; restore, sometimes WM already use M-SPC 
-(global-set-key (kbd "C-SPC") 'set-mark-command)
- 
-
-;; ---
 
 (ergoemacs-theme-component aj-fn-keys ()
   "My Fn keys"
@@ -37,8 +27,7 @@
   (global-set-key (kbd "<C-f9>") 'global-linum-mode)
 
   (global-set-key (kbd "<C-f10>") 'menu-bar-mode)
-  (global-set-key (kbd "<M-f10>") 'ergoemacs-mode)
-
+  (global-set-key (kbd "<C-f11>") 'ergoemacs-mode)
   )
 
 
@@ -293,11 +282,10 @@
     aj-misc
     aj-navigation
     aj-search
- 
     )
 
+  (global-set-key (kbd "M-RET") 'newline)
   (global-set-key (kbd "<C-return>") 'company-complete)
-
   )
 
 
@@ -316,7 +304,7 @@
         (modifiers '(nil (control) (meta) (control meta))))
     (when input-method
       (activate-input-method input-method))
-    (when (and current-input-method quail-keyboard-layout)
+    (when current-input-method
       (dolist (map (cdr (quail-map)))
         (let* ((to (car map))
                (from (quail-get-translation
@@ -334,9 +322,7 @@
     (when input-method
       (activate-input-method current))))
 
-
 (load-library "russian-colemak")
-
 (setq default-input-method
       (if (equal (getenv "ERGOEMACS_KEYBOARD_LAYOUT") "colemak")
 	  'russian-colemak 'russian-computer))
@@ -349,3 +335,5 @@
 (setq ergoemacs-handle-ctl-c-or-ctl-x 'only-C-c-and-C-x)
 (ergoemacs-mode 1)
 
+(provide 'my-bindings)
+;;; my-bindings.el ends here
