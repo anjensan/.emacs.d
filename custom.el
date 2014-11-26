@@ -8,7 +8,15 @@
     ("3a727bdc09a7a141e58925258b6e873c65ccf393b2240c51553098ca93957723" default)))
  '(delete-selection-mode t)
  '(eshell-banner-message "")
- '(initial-scratch-message "")
+ '(inhibit-startup-screen t)
+ '(initial-scratch-message
+   #(";; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with Ctrl+O,
+;; then enter the text in that file's own buffer." 131 135
+						       (face ergoemacs-pretty-key)
+						       136 137
+						       (face ergoemacs-pretty-key)))
+ '(menu-bar-mode nil)
  '(org-CUA-compatible t)
  '(org-special-ctrl-a/e t)
  '(org-support-shift-select t)
@@ -17,9 +25,17 @@
  '(rm-blacklist
    (quote
     (" yas" " ||" " ErgoAJ[colemak]" " ErgoAJ[us]" " AC" " GitGutter" " ElDoc" " Undo-Tree" " MRev")))
+ '(scroll-bar-mode nil)
  '(scroll-error-top-bottom t)
  '(set-mark-command-repeat-pop t)
- '(smex-prompt-string ">> "))
+ '(show-paren-mode t)
+ '(smex-prompt-string
+   #("Alt+A " 0 3
+     (face ergoemacs-pretty-key)
+     4 5
+     (face ergoemacs-pretty-key)))
+ '(tool-bar-mode nil)
+ '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

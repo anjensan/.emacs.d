@@ -15,12 +15,3 @@
 
 (add-to-list 'default-frame-alist (cons 'height (+ default-frame-height 0)))
 (add-to-list 'default-frame-alist (cons 'width (+ default-frame-width 1)))
-
-(setq font-use-system-font 1)
-(setq inhibit-startup-screen 1)
-(setq uniquify-buffer-name-style 'post-forward)
-
-(scroll-bar-mode 0)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-(show-paren-mode 1)

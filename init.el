@@ -10,4 +10,4 @@
 (load-library "my-bindings")
 
 (setq debug-on-error nil)
-(eshell)
+(dired "~")
