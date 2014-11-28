@@ -285,8 +285,7 @@
     aj-search
     )
 
-  (global-set-key (kbd "M-RET") 'newline)
-  (global-set-key (kbd "<C-return>") 'company-complete)
+  (global-set-key (kbd "M-RET") 'company-complete)
   )
 
 
