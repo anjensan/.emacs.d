@@ -42,8 +42,6 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; yafolding
-(unless (fboundp 'discover-add-context-menu)
-  (defun discover-add-context-menu (&rest ignored)))
 (require 'yafolding)
 (yafolding-mode)
 
