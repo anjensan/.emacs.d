@@ -1,6 +1,4 @@
-
-(set-face-attribute 'default nil :font "Source Code Pro 11")
-(set-fontset-font "fontset-default" '(#x0400 . #x04ff) "Dejavu Sans Mono")
+(set-face-attribute 'default nil :font "Ubuntu Mono 12")
 
 (defvar default-frame-height 40 "Default frame height")
 (defvar default-frame-width 132 "Default frame width")
