@@ -85,8 +85,6 @@
   (global-set-key (kbd "C-k") 'ace-jump-mode)
   (global-set-key (kbd "C-r") '("C-x r" nil))  ; region & bookmarks
 
-  (global-set-key (kbd "M-'") 'comment-DWIM)
-
   (define-key company-mode-map (kbd "C-.") 'company-abort)
   )
 
@@ -129,7 +127,7 @@
 )
 
 
-(ergoemacs-theme-component aj-move-buffer ()
+(ergoemacs-theme-component move-buffer ()
   "Exteded deletion keys"
   (global-unset-key (kbd "M->"))
   (global-unset-key (kbd "M-<"))
@@ -138,7 +136,7 @@
 )
 
 
-(ergoemacs-theme-component aj-misc ()
+(ergoemacs-theme-component misc ()
   "My misc keys"
 
   (global-set-key (kbd "M-b") 'ido-switch-buffer)
@@ -152,6 +150,9 @@
   (global-set-key (kbd "M-T") 'ergoemacs-call-keyword-completion)
   (global-set-key (kbd "M-t") 'dabbrev-expand)
 
+  (global-set-key (kbd "M-'") 'comment-DWIM)
+  (global-set-key (kbd "M-p") 'recenter-top-bottom)
+
   )
 
 (defmacro mk-push-command-event (keysym)
@@ -162,7 +163,7 @@
 
 
 ;;; Variable Components
-(ergoemacs-theme-component aj-move-char ()
+(ergoemacs-theme-component move-char ()
   "Move Char"
   :variable-reg ".*"
 
@@ -184,6 +185,12 @@
   (global-set-key (kbd "M-C-u") 'highlight-symbol-prev)
   (global-set-key (kbd "M-C-o") 'highlight-symbol-next)
 
+  (global-set-key (kbd "M-RET") 'company-complete)
+  (global-set-key (kbd "C-SPC") 'set-mark-command)
+
+  (define-key browse-kill-ring-mode-map (kbd "M-i") 'browse-kill-ring-backward)
+  (define-key browse-kill-ring-mode-map (kbd "M-k") 'browse-kill-ring-forward)
+
   ; isearch binds some M-* keys, whick may block navigation keys
   (when isearch-mode-hook
     :modify-map t
@@ -196,12 +203,12 @@
 
   )
 
-(ergoemacs-theme-component aj-move-pages ()
+(ergoemacs-theme-component move-page ()
   "Move by Page"
   (global-set-key (kbd "M-I") '(scroll-down-command scroll-down))
   (global-set-key (kbd "M-K") '(scroll-up-command scroll-up)))
 
-(ergoemacs-theme-component aj-search ()
+(ergoemacs-theme-component search ()
 
   "Search and Replace"
   (global-set-key (kbd "M-;") 'isearch-forward)
@@ -218,7 +225,7 @@
 
   )
 
-(ergoemacs-theme-component aj-select-items ()
+(ergoemacs-theme-component select-items ()
   "Select Items"
   (global-set-key (kbd "M-S-SPC") 'mark-paragraph)
 
@@ -243,51 +250,52 @@
 
   :components
   '(
-    aj-move-buffer
-    aj-move-char
-    move-bracket
-    move-line
-    aj-move-pages
-    move-paragraph
-    move-word
 
+    ;; -- disabled
+    ;; fixed-newline
+    ;; standard-vars
+
+    ;; -- standard
+    copy
+    dired-tab
+    dired-to-wdired
     execute
+    help
     kill-line
     misc
-    copy
-
-    ;fixed-newline
-    standard-fixed
-    ; search
-    aj-select-items
+    move-bracket
+    move-buffer
+    move-char
+    move-line
+    move-page
+    move-paragraph
+    move-word
+    search
+    select-items
     switch
     text-transform
-    standard-vars
-    help
-    quit
-
-    backspace-del-seq
-
-    dired-to-wdired
-    ido-remaps
-    dired-tab
     ergoemacs-remaps
 
+    ;; -- optional-on
+    ido-prev-next-instead-of-left-right
+    move-and-transpose-lines
+    standard-fixed
+    quit
+    backspace-del-seq
+    ido-remaps
     helm-remaps
     multiple-cursors-remaps
 
+    ;; -- my customizations
     aj-fixed-keys
     aj-delete
     aj-ct-keys
     aj-fn-keys
-    aj-misc
     aj-navigation
-    aj-search
     )
 
   (global-set-key (kbd "M-RET") 'company-complete)
   )
-
 
 ;; ---
 
