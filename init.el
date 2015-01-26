@@ -1,3 +1,6 @@
+(setq user-full-name "Andrei Zhlobich")
+(setq user-mail-address "a.zhlobich@gmail.com")
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'eshell)
 

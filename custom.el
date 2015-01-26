@@ -5,14 +5,18 @@
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode t)
  '(eshell-banner-message "")
+ '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message "")
  '(menu-bar-mode nil)
  '(org-CUA-compatible t)
  '(org-special-ctrl-a/e t)
  '(org-support-shift-select t)
+ '(recentf-menu-before "Close")
  '(recentf-mode t)
- '(rm-blacklist (quote (" yas" " ||" " ErgoAJ[colemak]" " ErgoAJ[us]" " AC" " GitGutter" " ElDoc" " Undo-Tree" " MRev")))
+ '(rm-blacklist
+   (quote
+    (" yas" " ||" " ErgoAJ[colemak]" " ErgoAJ[us]" " AC" " GitGutter" " ElDoc" " Undo-Tree" " MRev")))
  '(scroll-bar-mode nil)
  '(scroll-error-top-bottom t)
  '(set-mark-command-repeat-pop t)
