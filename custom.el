@@ -5,7 +5,6 @@
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode t)
  '(eshell-banner-message "")
- '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message "")
  '(menu-bar-mode nil)
