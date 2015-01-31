@@ -119,10 +119,6 @@
 ;; neotree
 (require 'neotree)
 
-;; completely disable banner
-(setq neo-banner-message nil)
-(defun neo-buffer--insert-banner ())
-
 ;; don't create empty lines at the top of neotree buffer
 (defun neo-buffer--newline-and-begin ()
   (unless (= (point) (point-min))
