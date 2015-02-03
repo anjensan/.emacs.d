@@ -85,7 +85,15 @@
   (global-set-key (kbd "C-k") 'ace-jump-mode)
   (global-set-key (kbd "C-r") '("C-x r" nil))  ; region & bookmarks
 
+  ;; -- customize modes
+
+  ;; company
   (define-key company-mode-map (kbd "C-.") 'company-abort)
+
+  ;; magit
+  (define-key git-rebase-mode-map (kbd "p") 'git-rebase-move-line-up)
+  (define-key git-rebase-mode-map (kbd "n") 'git-rebase-move-line-down)
+
   )
 
 
@@ -185,7 +193,8 @@
   (global-set-key (kbd "M-C-u") 'highlight-symbol-prev)
   (global-set-key (kbd "M-C-o") 'highlight-symbol-next)
 
-  (global-set-key (kbd "M-RET") 'company-complete)
+  (global-set-key (kbd "C-RET") 'company-complete)
+  (global-set-key (kbd "M-RET") 'newline-and-indent-relative)
   (global-set-key (kbd "C-SPC") 'set-mark-command)
 
   (define-key browse-kill-ring-mode-map (kbd "M-i") 'browse-kill-ring-backward)
@@ -293,8 +302,6 @@
     aj-fn-keys
     aj-navigation
     )
-
-  (global-set-key (kbd "M-RET") 'company-complete)
   )
 
 ;; ---

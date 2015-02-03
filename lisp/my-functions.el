@@ -146,3 +146,9 @@
       (progn
 	(message "Could not find git project root.")
 	(neotree-show)))))
+
+
+(defun newline-and-indent-relative ()
+  (interactive)
+  (newline)
+  (indent-relative-maybe))
