@@ -83,7 +83,6 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
 ;; erlang
-
 (flycheck-define-checker erlang
   "An Erlang hacked syntax checker"
   :command ("erlc" "-o" temporary-directory
