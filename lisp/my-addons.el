@@ -57,8 +57,9 @@
 
 ;; git
 (require 'magit)
-(add-hook 'magit-mode-hook 'magit-load-config-extensions)
 (require 'git-gutter-fringe+)
+(setq magit-last-seen-setup-instructions "1.4.0")
+(add-hook 'magit-mode-hook 'magit-load-config-extensions)
 (global-git-gutter+-mode 1)
 
 ;; company
