@@ -91,9 +91,9 @@
   (define-key company-mode-map (kbd "C-.") 'company-abort)
 
   ;; magit
-  (define-key git-rebase-mode-map (kbd "p") 'git-rebase-move-line-up)
-  (define-key git-rebase-mode-map (kbd "n") 'git-rebase-move-line-down)
-
+  (when git-rebase-mode-hook
+    (define-key git-rebase-mode-map (kbd "p") 'git-rebase-move-line-up)
+    (define-key git-rebase-mode-map (kbd "n") 'git-rebase-move-line-down))
   )
 
 
