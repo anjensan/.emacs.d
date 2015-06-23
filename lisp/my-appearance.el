@@ -1,9 +1,10 @@
-(defvar default-frame-font "Ubuntu Mono 12" "Default frame font")
+(load-theme 'zenburn t)
+
+(defvar default-frame-font "DejaVu Sans Mono 11" "Default frame font")
 (defvar default-frame-height 40 "Default frame height")
 (defvar default-frame-width 132 "Default frame width")
 
 (when (window-system)
-  ;; (load-theme 'adwaita t)
   (add-to-list 'default-frame-alist (cons 'height (+ default-frame-height 0)))
   (add-to-list 'default-frame-alist (cons 'width (+ default-frame-width 1)))
   (set-face-attribute 'default nil :font default-frame-font)

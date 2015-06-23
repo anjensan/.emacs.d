@@ -4,7 +4,7 @@
 ;; mode line
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)
-;; (sml/apply-theme 'respectful)
+(sml/apply-theme 'respectful)
 (sml/setup)
 
 ;; mmm
@@ -71,6 +71,7 @@
 (elpy-enable)
 (elpy-use-ipython)
 (setq elpy-modules (delete 'elpy-module-flymake elpy-modules))
+(setq elpy-modules (delete 'elpy-module-highlight-indentation elpy-modules))
 (add-to-list 'python-font-lock-keywords '("\\_<self\\_>" 0 'font-lock-self-class-face))
 (add-to-list 'auto-mode-alist '("[.]rpy$" . python-mode))
 (add-to-list 'auto-mode-alist '("[.]tac$" . python-mode))

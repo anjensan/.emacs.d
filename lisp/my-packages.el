@@ -24,7 +24,6 @@
 (setq my-packages
       '(
 	ace-jump-mode
-	base16-theme
 	cider
 	clojure-mode
 	company
@@ -64,6 +63,7 @@
 	yafolding
 	yaml-mode
 	yasnippet
+	zenburn-theme
 	))
 
 (unless (cl-every 'package-installed-p my-packages)
