@@ -3,7 +3,7 @@
 (defvar default-frame-width 132 "Default frame width")
 
 (when (window-system)
-  (load-theme 'base16-default-dark t)
+  ;; (load-theme 'adwaita t)
   (add-to-list 'default-frame-alist (cons 'height (+ default-frame-height 0)))
   (add-to-list 'default-frame-alist (cons 'width (+ default-frame-width 1)))
   (set-face-attribute 'default nil :font default-frame-font)
