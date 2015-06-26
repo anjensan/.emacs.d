@@ -40,6 +40,7 @@
 	git-gutter-fringe+
 	git-rebase-mode
 	haskell-mode
+	hc-zenburn-theme
 	highlight-indentation
 	highlight-symbol
 	hy-mode
@@ -63,7 +64,6 @@
 	yafolding
 	yaml-mode
 	yasnippet
-	zenburn-theme
 	))
 
 (unless (cl-every 'package-installed-p my-packages)

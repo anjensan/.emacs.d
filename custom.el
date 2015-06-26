@@ -33,11 +33,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
- ;; '(fringe ((t (:background "#252525"))))
- ;; '(mode-line ((t (:background "gray23" :foreground "#e0e0e0" :box (:line-width 1 :color "grey26")))))
- ;; '(mode-line-inactive ((t (:inherit mode-line :background "grey13" :foreground "grey80" :box (:line-width 1 :color "grey25")))))
- ;; '(region ((t (:background "#404144"))))
- ;; '(vertical-border ((t (:foreground "gray22"))))
-
  )
