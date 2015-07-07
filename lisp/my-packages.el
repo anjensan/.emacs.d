@@ -35,10 +35,8 @@
 	expand-region
 	find-file-in-project
 	flycheck
-	git-commit-mode
 	git-gutter+
 	git-gutter-fringe+
-	git-rebase-mode
 	haskell-mode
 	hc-zenburn-theme
 	highlight-indentation
