@@ -34,6 +34,7 @@
 	etags-table
 	expand-region
 	find-file-in-project
+	fish-mode
 	flycheck
 	git-gutter+
 	git-gutter-fringe+
