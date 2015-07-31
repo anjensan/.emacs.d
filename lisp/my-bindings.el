@@ -63,7 +63,7 @@
   "My Fixed Shortcuts"
   :variable-reg nil
 
-  (global-set-key (kbd "C-d") 'rgrep)
+  (global-set-key (kbd "C-d") 'ag)
   (global-set-key (kbd "C-p") 'find-file-in-project)
   (global-set-key (kbd "C-j") 'join-line)
   (global-set-key (kbd "C-e") 'highlight-symbol-at-point)

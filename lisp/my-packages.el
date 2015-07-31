@@ -23,6 +23,7 @@
 
 (setq my-packages
       '(
+	ag
 	ace-jump-mode
 	cider
 	clojure-mode
