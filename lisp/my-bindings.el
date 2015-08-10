@@ -7,7 +7,7 @@
 
 (defun ergoemacs-shell-here-directory-change-hook ())
 
-(ergoemacs-theme-component aj-fn-keys ()
+(ergoemacs-component aj-fn-keys ()
   "My Fn keys"
 
   (global-set-key (kbd "<f2>") 'kmacro-call-macro)
@@ -32,7 +32,7 @@
   )
 
 
-(ergoemacs-theme-component aj-navigation ()
+(ergoemacs-component aj-navigation ()
   "My navigation keys"
 
   (global-set-key (kbd "<C-tab>") 'next-buffer)
@@ -59,7 +59,7 @@
   )
 
 
-(ergoemacs-theme-component aj-fixed-keys ()
+(ergoemacs-component aj-fixed-keys ()
   "My Fixed Shortcuts"
   :variable-reg nil
 
@@ -97,7 +97,7 @@
   )
 
 
-(ergoemacs-theme-component aj-ct-keys ()
+(ergoemacs-component aj-ct-keys ()
   "Some stuff keys prefixed with C-t"
   :first-is-variable-reg "C-t"
 
@@ -123,7 +123,7 @@
   )
 
 
-(ergoemacs-theme-component aj-delete ()
+(ergoemacs-component aj-delete ()
   "Exteded deletion keys"
 
   (global-set-key (kbd "M-d") 'delete-backward-char)
@@ -135,7 +135,7 @@
 )
 
 
-(ergoemacs-theme-component move-buffer ()
+(ergoemacs-component move-buffer-ajmod ()
   "Exteded deletion keys"
   (global-unset-key (kbd "M->"))
   (global-unset-key (kbd "M-<"))
@@ -144,8 +144,8 @@
 )
 
 
-(ergoemacs-theme-component misc ()
-  "My misc keys"
+(ergoemacs-component misc-aj ()
+  "My misc-aj keys"
 
   (global-set-key (kbd "M-b") 'ido-switch-buffer)
   (global-set-key (kbd "M-B") 'ibuffer)
@@ -167,13 +167,12 @@
   (let ((fn-name (intern (concat "push-command-event--" (symbol-name keysym)))))
   `(defun ,fn-name ()
      (interactive)
-     (push (cons t ',keysym) unread-command-events))))
+     (push ',keysym unread-command-events))))
 
 
 ;;; Variable Components
-(ergoemacs-theme-component move-char ()
+(ergoemacs-component move-char-ajmod ()
   "Move Char"
-  :variable-reg ".*"
 
   (global-set-key (kbd "M-j") (mk-push-command-event left))
   (global-set-key (kbd "M-l") (mk-push-command-event right))
@@ -212,12 +211,12 @@
 
   )
 
-(ergoemacs-theme-component move-page ()
+(ergoemacs-component move-page-ajmod ()
   "Move by Page"
   (global-set-key (kbd "M-I") '(scroll-down-command scroll-down))
   (global-set-key (kbd "M-K") '(scroll-up-command scroll-up)))
 
-(ergoemacs-theme-component search ()
+(ergoemacs-component search-ajmod ()
 
   "Search and Replace"
   (global-set-key (kbd "M-;") 'isearch-forward)
@@ -234,7 +233,7 @@
 
   )
 
-(ergoemacs-theme-component select-items ()
+(ergoemacs-component select-items-ajmod ()
   "Select Items"
   (global-set-key (kbd "M-S-SPC") 'mark-paragraph)
 
@@ -271,19 +270,21 @@
     execute
     help
     kill-line
-    misc
+    misc-aj
     move-bracket
-    move-buffer
-    move-char
     move-line
-    move-page
     move-paragraph
     move-word
-    search
-    select-items
     switch
     text-transform
     ergoemacs-remaps
+
+    ;; -- standart, but modified
+    move-buffer-ajmod
+    move-char-ajmod
+    move-page-ajmod
+    search-ajmod
+    select-items-ajmod
 
     ;; -- optional-on
     ido-prev-next-instead-of-left-right
@@ -340,9 +341,9 @@
 (load-library "russian-colemak")
 (setq default-input-method
       (if (equal (getenv "ERGOEMACS_KEYBOARD_LAYOUT") "colemak")
-	  'russian-colemak 'russian-computer))
+        'russian-colemak 'russian-computer))
 
-(reverse-input-method default-input-method)
+;; (reverse-input-method default-input-method)
 
 ;; ---
 
