@@ -71,7 +71,7 @@
   ; todo: review
   (global-set-key (kbd "C-g") 'magit-status)
   (global-set-key (kbd "C-'") 'dired-jump)
-  (global-set-key (kbd "C-Z") 'undo-tree-visualize)
+  (global-set-key (kbd "C-z") 'undo-tree-visualize)
   (global-set-key (kbd "C-y") 'reposition-window)
   (global-set-key (kbd "C-v") 'neotree-project-dir)
   (global-set-key (kbd "C-b") 'bs-show)
@@ -158,7 +158,7 @@
   (global-set-key (kbd "M-T") 'ergoemacs-call-keyword-completion)
   (global-set-key (kbd "M-t") 'dabbrev-expand)
 
-  (global-set-key (kbd "M-'") 'comment-DWIM)
+  (global-set-key (kbd "M-'") 'comment-dwim)
   (global-set-key (kbd "M-p") 'recenter-top-bottom)
 
   )
@@ -198,17 +198,6 @@
 
   (define-key browse-kill-ring-mode-map (kbd "M-i") 'browse-kill-ring-backward)
   (define-key browse-kill-ring-mode-map (kbd "M-k") 'browse-kill-ring-forward)
-
-  ; isearch binds some M-* keys, whick may block navigation keys
-  (when isearch-mode-hook
-    :modify-map t
-    :full-shortcut-map t
-    (define-key isearch-mode-map (kbd "M-j") 'isearch-other-control-char)
-    (define-key isearch-mode-map (kbd "M-l") 'isearch-other-control-char)
-    (define-key isearch-mode-map (kbd "M-i") 'isearch-other-control-char)
-    (define-key isearch-mode-map (kbd "M-k") 'isearch-other-control-char)
-    )
-
   )
 
 (ergoemacs-component move-page-ajmod ()
@@ -217,7 +206,6 @@
   (global-set-key (kbd "M-K") '(scroll-up-command scroll-up)))
 
 (ergoemacs-component search-ajmod ()
-
   "Search and Replace"
   (global-set-key (kbd "M-;") 'isearch-forward)
   (global-set-key (kbd "M-:") 'isearch-backward)
@@ -228,9 +216,8 @@
   (global-set-key (kbd "C-M-%") nil)
   (global-set-key (kbd "M-%") '(vr/query-replace query-replace-regexp))
 
-  (define-key browse-kill-ring-mode-map (kbd "M-;") 'browse-kill-ring-search-forward)
-  (define-key browse-kill-ring-mode-map (kbd "M-:") 'browse-kill-ring-search-backward)
-
+  (define-key browse-kill-ring-mode-map [remap isearch-forward] 'browse-kill-ring-search-forward)
+  (define-key browse-kill-ring-mode-map [remap isearch-backward] 'browse-kill-ring-search-backward)
   )
 
 (ergoemacs-component select-items-ajmod ()
@@ -248,8 +235,14 @@
 
   (global-set-key (kbd "M-0") 'yafolding-toggle-element)
   (global-set-key (kbd "M-)") 'yafolding-toggle-all)
- )
+  )
 
+(ergoemacs-component execute-ajmod ()
+  "Execute Commands"
+  (global-unset-key (kbd "M-x"))
+  (global-set-key (kbd "M-a") 'smex)
+  (global-unset-key (kbd "M-!"))
+  (global-set-key (kbd "M-A") 'shell-command))
 
 ;; ---
 
@@ -267,7 +260,6 @@
     copy
     dired-tab
     dired-to-wdired
-    execute
     help
     kill-line
     misc-aj
@@ -278,6 +270,7 @@
     switch
     text-transform
     ergoemacs-remaps
+    standard-fixed
 
     ;; -- standart, but modified
     move-buffer-ajmod
@@ -285,16 +278,7 @@
     move-page-ajmod
     search-ajmod
     select-items-ajmod
-
-    ;; -- optional-on
-    ido-prev-next-instead-of-left-right
-    move-and-transpose-lines
-    standard-fixed
-    quit
-    backspace-del-seq
-    ido-remaps
-    helm-remaps
-    multiple-cursors-remaps
+    execute-ajmod
 
     ;; -- my customizations
     aj-fixed-keys
@@ -302,6 +286,16 @@
     aj-ct-keys
     aj-fn-keys
     aj-navigation
+    )
+
+    :optional-on '(
+    ido-remaps
+    helm-remaps
+    multiple-cursors-remaps
+    ido-prev-next-instead-of-left-right
+    move-and-transpose-lines
+    quit
+    backspace-del-seq
     )
   )
 
@@ -343,7 +337,7 @@
       (if (equal (getenv "ERGOEMACS_KEYBOARD_LAYOUT") "colemak")
         'russian-colemak 'russian-computer))
 
-;; (reverse-input-method default-input-method)
+(reverse-input-method default-input-method)
 
 ;; ---
 
