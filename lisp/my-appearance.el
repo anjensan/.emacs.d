@@ -1,6 +1,6 @@
 (load-theme 'hc-zenburn t)
 
-(defvar default-frame-font "DejaVu Sans Mono 11" "Default frame font")
+(defvar default-frame-font "Source Code Pro 11" "Default frame font")
 (defvar default-frame-height 40 "Default frame height")
 (defvar default-frame-width 132 "Default frame width")
 
