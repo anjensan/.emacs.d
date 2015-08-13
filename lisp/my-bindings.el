@@ -173,6 +173,7 @@
 ;;; Variable Components
 (ergoemacs-component move-char-ajmod ()
   "Move Char"
+  :variable-reg ".*"
 
   (global-set-key (kbd "M-j") (mk-push-command-event left))
   (global-set-key (kbd "M-l") (mk-push-command-event right))
