@@ -117,6 +117,9 @@
 (yas-global-mode 1)
 (add-hook 'yas-global-mode-hook 'yas--global-mode-reload-with-jit-maybe)
 
+;; ffip
+(require 'find-file-in-project)
+
 ;; neotree
 (require 'neotree)
 

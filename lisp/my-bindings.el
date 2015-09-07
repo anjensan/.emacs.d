@@ -73,6 +73,7 @@
   (global-set-key (kbd "C-'") 'dired-jump)
   (global-set-key (kbd "C-z") 'undo-tree-visualize)
   (global-set-key (kbd "C-y") 'reposition-window)
+
   (global-set-key (kbd "C-v") 'neotree-project-dir)
   (global-set-key (kbd "C-b") 'bs-show)
 
@@ -144,8 +145,8 @@
 )
 
 
-(ergoemacs-component misc-aj ()
-  "My misc-aj keys"
+(ergoemacs-component aj-misc ()
+  "My aj-misc keys"
 
   (global-set-key (kbd "M-b") 'ido-switch-buffer)
   (global-set-key (kbd "M-B") 'ibuffer)
@@ -165,9 +166,9 @@
 
 (defmacro mk-push-command-event (keysym)
   (let ((fn-name (intern (concat "push-command-event--" (symbol-name keysym)))))
-  `(defun ,fn-name ()
-     (interactive)
-     (push ',keysym unread-command-events))))
+    `(defun ,fn-name ()
+       (interactive)
+       (push ',keysym unread-command-events))))
 
 
 ;;; Variable Components
@@ -253,6 +254,22 @@
   :components
   '(
 
+    ;; -- my customizations
+    aj-fixed-keys
+    aj-delete
+    aj-ct-keys
+    aj-fn-keys
+    aj-navigation
+    aj-misc
+
+    ;; -- standart, but modified
+    move-buffer-ajmod
+    move-char-ajmod
+    move-page-ajmod
+    search-ajmod
+    select-items-ajmod
+    execute-ajmod
+
     ;; -- disabled
     ;; fixed-newline
     ;; standard-vars
@@ -263,7 +280,6 @@
     dired-to-wdired
     help
     kill-line
-    misc-aj
     move-bracket
     move-line
     move-paragraph
@@ -273,20 +289,6 @@
     ergoemacs-remaps
     standard-fixed
 
-    ;; -- standart, but modified
-    move-buffer-ajmod
-    move-char-ajmod
-    move-page-ajmod
-    search-ajmod
-    select-items-ajmod
-    execute-ajmod
-
-    ;; -- my customizations
-    aj-fixed-keys
-    aj-delete
-    aj-ct-keys
-    aj-fn-keys
-    aj-navigation
     )
 
     :optional-on '(
@@ -298,6 +300,7 @@
     quit
     backspace-del-seq
     )
+
   )
 
 ;; ---
